@@ -17,13 +17,10 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
             debuggable true
         }
         quality {
             minifyEnabled true
-            applicationIdSuffix ".quality"
-            signingConfig signingConfigs.release
 
         }
         release {
