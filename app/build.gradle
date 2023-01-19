@@ -5,10 +5,6 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
-def gradlePropertiesFile = rootProject.file("gradle.properties")
-def gradleProperties = new Properties()
-gradleProperties.load(new FileInputStream(gradlePropertiesFile))
-
 android {
     signingConfigs {
         release {
