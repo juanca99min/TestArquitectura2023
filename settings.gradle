@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TestArquitecture2023"
 include ':app'
+include ':core'
+include ':core:datastore'
+include ':feature'
+include ':feature:login'
+include ':feature:login:presentation'
