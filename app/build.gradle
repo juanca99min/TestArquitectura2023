@@ -17,9 +17,9 @@ android {
     signingConfigs {
         release {
             storeFile rootProject.file("app/99minutos.jks")
-            storePassword System.env.APPCENTER_KEYSTORE_PASSWORD ? localProperties['RELEASE_KEY_STORE_PASSWORD'] : null
-            keyAlias System.env.APPCENTER_KEY_ALIAS ?: localProperties['RELEASE_KEY_ALIAS']
-            keyPassword System.env.APPCENTER_KEY_PASSWORD ?: localProperties['RELEASE_KEY_PASSWORD']
+            storePassword System.getenv("APPCENTER_KEYSTORE_PASSWORD") ? localProperties['RELEASE_KEY_STORE_PASSWORD'] : null
+            keyAlias System.getenv("APPCENTER_KEY_ALIAS") ?: localProperties['RELEASE_KEY_ALIAS']
+            keyPassword System.getenv("APPCENTER_KEY_PASSWORD") ?: localProperties['RELEASE_KEY_PASSWORD']
         }
     }
 
