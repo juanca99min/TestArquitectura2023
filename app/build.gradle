@@ -4,10 +4,13 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
+def localProperties = null
+if(project.hasProperty("local.properties")) {
+    def localPropertiesFile = rootProject.file("local.properties")
+    localProperties = new Properties()
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
 
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
 
 android {
     signingConfigs {
