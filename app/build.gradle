@@ -16,17 +16,10 @@ if (localPropertiesFile.exists()) {
 android {
     signingConfigs {
         release {
-            if (localPropertiesFile.exists()) {
-                storeFile rootProject.file("app/99minutos.jks")
-                storePassword localProperties['RELEASE_KEY_STORE_PASSWORD']
-                keyAlias  localProperties['RELEASE_KEY_ALIAS']
-                keyPassword  localProperties['RELEASE_KEY_PASSWORD']
-            } else {
-                storeFile rootProject.file("app/99minutos.jks")
-                storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
-                keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
-                keyPassword System.getProperty("APPCENTER_KEY_PASSWORD") 
-            }
+            storeFile rootProject.file("app/99minutos.jks")
+            storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
+            keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
+            keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
 
         }
     }
