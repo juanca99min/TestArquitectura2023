@@ -5,13 +5,17 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     signingConfigs {
         release {
             storeFile rootProject.file("app/99minutos.jks")
-            storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
-            keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
-            keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
+            storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD") ?: localProperties['RELEASE_KEY_STORE_PASSWORD']
+            keyAlias System.getProperty("APPCENTER_KEY_ALIAS") ?: localProperties['RELEASE_KEY_ALIAS']
+            keyPassword System.getProperty("APPCENTER_KEY_PASSWORD") ?: localProperties['RELEASE_KEY_PASSWORD']
         }
     }
 
@@ -45,6 +49,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
         }
     }
     compileOptions {
