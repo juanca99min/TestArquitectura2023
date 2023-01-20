@@ -4,16 +4,22 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
 
 
 android {
     signingConfigs {
         release {
             storeFile rootProject.file("app/99minutos.jks")
-            storePassword System.getProperty("APPCENTER_KEYSTORE_PASSWORD")
-            keyAlias System.getProperty("APPCENTER_KEY_ALIAS")
-            keyPassword System.getProperty("APPCENTER_KEY_PASSWORD")
-
+            storePassword System.env.APPCENTER_KEYSTORE_PASSWORD ? localProperties['RELEASE_KEY_STORE_PASSWORD'] : null
+            keyAlias System.env.APPCENTER_KEY_ALIAS ?: localProperties['RELEASE_KEY_ALIAS']
+            keyPassword System.env.APPCENTER_KEY_PASSWORD ?: localProperties['RELEASE_KEY_PASSWORD']
         }
     }
 
