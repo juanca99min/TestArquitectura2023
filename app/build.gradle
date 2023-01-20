@@ -5,6 +5,11 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 def localProperties = null
+if (project.hasProperty("local.properties") && new File(project.property("local.properties")).exists()) {
+    println 'apply yourproject properties property';
+} else {
+    println 'no yourproject properties property';
+}
 if(project.hasProperty("local.properties")) {
     def localPropertiesFile = rootProject.file("local.properties")
     localProperties = new Properties()
