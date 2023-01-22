@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-#mkdir -p ./build/outputs/apk/; mv build/app/outputs/apk/release/app-release.apk $_
-#mkdir -p ./build/outputs/bundle/; mv build/app/outputs/bundle/release/app.aab $_
+mkdir -p build/app/outputs/apk/release/app-release.apk; mv build/outputs/apk/ $_
+mkdir -p build/app/outputs/bundle/release/app.aab; mv build/outputs/bundle/ $_
