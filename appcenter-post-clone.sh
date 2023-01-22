@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
+mkdir -p android/app/app/build/outputs/apk/; mv build/app/outputs/apk/release/app-release.apk $_
 
-export APPCENTER_KEYSTORE_PASSWORD=$APPCENTER_KEYSTORE_PASSWORD
-export APPCENTER_KEY_ALIAS=$APPCENTER_KEY_ALIAS
-export APPCENTER_KEY_PASSWORD=$APPCENTER_KEY_PASSWORD
+mkdir -p android/app/app/build/outputs/bundle/; mv build/app/outputs/bundle/release/app.aab $_
