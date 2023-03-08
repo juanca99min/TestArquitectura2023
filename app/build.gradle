@@ -27,11 +27,11 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.testarquitecture2023"
+        applicationId "com.github.juanncode.testarquitecture2023"
         minSdk 23
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "0.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -79,6 +79,7 @@ android {
 
 dependencies {
     implementation(project(":core:datastore"))
+    implementation(project(":feature:movie:presentation"))
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.activity:activity-compose:1.6.1'
     implementation "androidx.compose.ui:ui:$compose_ui_version"
